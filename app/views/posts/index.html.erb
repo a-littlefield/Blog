@@ -1,4 +1,17 @@
 <h1>Hilo Fwend</h1>
+<%= link_to "Create a new post here!", new_post_path %>
 
+<table class="table table-hover table-striped">
+  <tbody> 
+  <% @posts.each do |post| %>                                   
+    <tr>
+      <td>
+          <h5><%= post.title %></h5> <%= post.content %> <p class="posts-user">by: <%= User.find(post.user_id).full_name %>
+          <%= link_to "Comment", post, id: "comment" %></p>
+      </td>
+    </tr>
+   <% end %>
+  </tbody>
+</table>
 
 
