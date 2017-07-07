@@ -24,3 +24,6 @@ edit_comment GET    /comments/:id/edit(.:format) comments#edit
              PUT    /comments/:id(.:format)      comments#update
              DELETE /comments/:id(.:format)      comments#destroy
         root GET    /                            posts#index
+       login GET    /login(.:format)             sessions#new
+             POST   /login(.:format)             sessions#create
+      logout DELETE /logout(.:format)            sessions#destroy

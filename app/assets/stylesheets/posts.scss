@@ -1,3 +1,21 @@
 // Place all the styles related to the posts controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.post-form {
+	margin-top: 50px;
+	display: flex;
+    flex-direction: column;
+    padding: 0 300px;
+}
+
+.posts-user {
+	margin-bottom: 0;
+    margin-top: 1rem;
+	font-size: 0.7em;
+	font-weight: bold;
+}
+
+#comment {
+	float: right;
+}

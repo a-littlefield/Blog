@@ -1,2 +1,6 @@
-<h1>Posts#new</h1>
-<p>Find me in app/views/posts/new.html.erb</p>
+
+<%= form_with model: @post, local: true, class: 'post-form' do |f| %>
+	<%= f.text_field :title, placeholder: 'Post Title', class: 'post-title' %>
+	<%= f.text_area :content, size: "30x5", placeholder: 'Post content' %>
+	<%= f.submit %>	
+<% end %>	

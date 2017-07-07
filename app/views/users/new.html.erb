@@ -1,2 +1,14 @@
-<h1>Users#new</h1>
-<p>Find me in app/views/users/new.html.erb</p>
+<h1>WaLcOMe nEw YouSER</h1>
+
+<%= form_with model: @user, local: true, class: 'new-form' do |f| %>
+	<%= f.label :first_name, class: 'first-name' %>
+	<%= f.text_field :first_name %>
+	<%= f.label :last_name %>
+	<%= f.text_field :last_name %>
+	<%= f.label :email, "Email" %>
+	<%= f.text_field :email %>
+	<%= f.label :password, "Password" %>
+	<%= f.password_field :password %>
+	<%= f.submit %>
+<% end %>
+
