@@ -3,12 +3,27 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 .new-form {
-	
+	display: flex;
+	flex-direction: column;
+	padding: 0 200px;
 }
 .first-name {
-	color: red;
+	color: rgb(66, 223, 244);
 }
 
 #profile-image {
 	float: left;
+}
+
+.comment-page {
+	padding-left: 20px;
+}
+
+.container {
+	margin-top: 20px;
+}
+
+.new-user {
+	text-align: center;
+	color: skyblue;
 }

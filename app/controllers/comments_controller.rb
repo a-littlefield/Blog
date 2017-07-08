@@ -4,9 +4,12 @@ class CommentsController < ApplicationController
   end
 
   def new
+    @comment = Comment.new
   end
 
   def create
+    @comment = current_user.comments.create(params[:comment])
+    redirect_to @comment.post
   end
 
   def edit

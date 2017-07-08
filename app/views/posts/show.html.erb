@@ -1,2 +1,40 @@
-<h1><%=  %></h1>
+<div class="comment-page">
+	<h1 class="" style="text-align: center;"><%= @post.title %></h1>
+	<p style="text-align: center;"><%= @post.content %></p>
+
+	<h4 style="margin-bottom: 40px;">Comments:</h4>
+
+	<% @post.comments.each do |comment| %>
+		<h6><%= User.find(comment.user_id).full_name %> says:</h6>
+		<p style="margin-bottom: 20px;"><%= comment.content %></p> 
+		
+		
+	<% end %>
+
+
+	<div class="container pb-cmnt-container">
+	    <div class="row">
+	        <div class="col-md-6 offset-md-3">
+	            <div class="card card-info">
+	                <div class="card-block">
+	                	<%= form_with model: @comment, local: true do |f| %>
+	                		<%= f.text_area :content, size: "30x5", placeholder: 'Write a comment!', class: 't-area' %>
+	                		<%= f.hidden_field :post_id, value: @post.id %>
+	                    <form class="form-inline">
+	                        <button class="btn btn-primary float-xs-right" type="button"><%= f.submit %></button>
+	                    </form>
+	                	<% end %>
+	                </div>
+	            </div>
+	        </div>
+	    </div>
+	</div>
+
+	<style>
+	    
+
+	</style>
+	
+</div>
+
 
