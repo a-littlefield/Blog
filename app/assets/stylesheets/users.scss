@@ -27,3 +27,42 @@
 	text-align: center;
 	color: skyblue;
 }
+
+.name {
+	width: 15em;
+	margin: 10px auto;
+	padding: 20px;
+	text-align: center;
+	color: rgb(27, 247, 163)
+}
+
+.recents {
+	width: 20em;
+	text-align: center;
+	margin: 12px auto;
+	padding: 10px;
+	background-size: 15px 10px;
+	background: rgba(46, 229, 229, 0.32);
+	border-radius: 20em;
+	color: cyan;
+	border-bottom: 1px solid skyblue;
+}
+
+.comment-post {
+	width: 20em;
+	text-align: center;
+	margin: 0 auto;
+	padding: 15px 12px;
+	background-size: 15px 10px;
+	border-left: 1px solid skyblue;
+	border-right: 1px solid skyblue;
+}
+
+.comment-post a {
+	color: rgb(80, 11, 136);
+}
+
+.comment-post a:hover {
+	text-decoration: none;
+	color: magenta;
+}

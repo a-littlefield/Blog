@@ -1,7 +1,7 @@
 <h1 style="margin: 20px 10px">Recent posts</h1>
 
 <p style="margin-left: 10px;">
-	<%= link_to "Create a new post here!", new_post_path %>
+	<%= link_to "Create a new post!", new_post_path %>
 </p>
 
 
@@ -10,7 +10,7 @@
   <% @posts.each do |post| %>                                   
     <tr>
       <td>
-          <h5><%= post.title %></h5> <%= post.content %> <p class="posts-user">by: <%= User.find(post.user_id).full_name %>
+          <h5 class="postTitle"><%= link_to post.title, post %></h5> <%= post.content %> <p class="posts-user">by: <%= User.find(post.user_id).full_name %> <%= time_ago_in_words(post.created_at) %> ago
           <%= link_to "Comment", post, id: "comment" %></p>
       </td>
     </tr>

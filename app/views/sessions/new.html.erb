@@ -1,9 +1,9 @@
-<%= form_with model: @user, local: true do |f| %>
+<%= form_with model: @user, local: true, class: 'login-form' do |f| %>
 	<%= f.label :email, "Email" %>
-	<%= f.text_field :email %>
+	<%= f.text_field :email, class: 'login-email' %>
 	<%= f.label :password, "Password" %>
-	<%= f.password_field :password %>
-	<%= f.submit %>
+	<%= f.password_field :password, class: 'login-password' %>
+	<%= f.submit 'Login' %>
 <% end %>
 
-<h4>Don't have an account? <%= link_to "Click here!", new_user_path %></h4>
+<h4 class="sign-in">Don't have an account? <%= link_to "Click here!", new_user_path %></h4>
