@@ -1,6 +1,6 @@
 class PostsController < ApplicationController
   def index
-    @posts = Post.order(created_at: :desc).last(10)
+    @posts = Post.order(created_at: :desc).limit(50)
   end
 
   def new
@@ -8,7 +8,7 @@ class PostsController < ApplicationController
   end
 
   def create
-    @post = current_user.posts.create(params[:post])
+    @post = current_user.posts.create(post_params)
     redirect_to posts_path
 
   end
@@ -25,5 +25,11 @@ class PostsController < ApplicationController
   end
 
   def destroy
+  end
+
+  private
+
+  def post_params
+    params.require(:post).permit(:user_id, :title, :content)
   end
 end

@@ -1,88 +1,13 @@
-<!-- <img id='profile-image' src="http://appamatix.com/wp-content/uploads/2016/05/04-450x427.jpg" alt="" style="width: 150px; height: 150px;"> -->
+<body style="background: linear-gradient(to right, #9E00E5, #00BFBB);">
 
+<% @users.each do |user| %>
+	<h3 class="name"><%= user.full_name %></h3>
+	<h5 class="recents">Recent comments:</h5>
+	<% if user.comments.count == 0 %>
+		<p class="comment-post"> <%= user.first_name %> has no comments :(</p>
+	<% end %>
+	<% user.comments.order(created_at: :desc).limit(3).each do |comment| %>
+		<p class="comment-post"><%= link_to comment.content, comment.post %></p>
+	<% end %>
+<% end %>
 
-<div class="container">
-    <div class="row m-y-2">
-        <div class="col-lg-8 push-lg-4">
-            <ul class="nav nav-tabs">
-                <li class="nav-item">
-                    <a href="" data-target="#profile" data-toggle="tab" class="nav-link active">Profile</a>
-                </li>
-                <li class="nav-item">
-                    <a href="" data-target="#messages" data-toggle="tab" class="nav-link">Messages</a>
-                </li>
-            </ul>
-            <div class="tab-content p-b-3">
-                <div class="tab-pane active" id="profile">
-                    <h4 class="m-y-2">User Profile</h4>
-                    <div class="row">
-                        <div class="col-md-6">
-                            <h6>About</h6>
-                            <p>
-                                User of this website.
-                                <p>Has first name <%= @user.first_name %>. </p>
-                            </p>
-                            <h6>Hobbies</h6>
-                            <p>
-                                Likes whatever it is they like, why do you care? Creep.
-                            </p>
-                        </div>
-                        <div class="col-md-6">
-                            <h6>User Info</h6>
-                            <p>Name: <%= @user.full_name %></p>
-                            <p>Email: <%= @user.email %></p>
-                            <p>Number of posts: 0</p>
-                        </div>
-                        <div class="col-md-12">
-                            <h4 class="m-t-2"><span class="fa fa-clock-o ion-clock pull-xs-right"></span> Recent Posts</h4>
-                            <table class="table table-hover table-striped">
-                                <tbody> 
-                                  <% @user.posts.each do |post| %>                                   
-                                    <tr>
-                                      <td>
-                                          <h5><%= post.title %></h5> <%= post.content %> <p class="posts-user">by: <%= User.find(post.user_id).full_name %>
-                                          <%= link_to "Comment", post, id: "comment" %></p>
-                                      </td>
-                                    </tr>
-                                  <% end %>
-                                </tbody>
-                            </table>
-                        </div>
-                    </div>
-                    <!--/row-->
-                </div>
-                <div class="tab-pane" id="messages">
-                    <h4 class="m-y-2">Recent Messages &amp; Notifications</h4>
-                    <div class="alert alert-info alert-dismissable">
-                        <a class="panel-close close" data-dismiss="alert">×</a> You have not posted in <strong>2 hours</strong>! Plese post more. We feed on it.
-                    </div>
-                    <table class="table table-hover table-striped">
-                        <tbody>                                    
-                            <tr>
-                                <td>
-                                   <span class="pull-xs-right font-weight-bold">3 hrs ago</span> Jacoby says 'Henlo you stinky.'
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                   <span class="pull-xs-right font-weight-bold">Yesterday</span> Ryan wants to hang out!
-                                </td>
-                            </tr>
-                        </tbody> 
-                    </table>
-                </div>
-                <div class="tab-pane" id="edit">
-                </div>
-            </div>
-        </div>
-        <div class="col-lg-4 pull-lg-8 text-xs-center">
-        	<form action="/users">
-            <img id='profile-img' src="http://appamatix.com/wp-content/uploads/2016/05/04-450x427.jpg" class="m-x-auto img-fluid img-circle" alt="avatar" style="width: 250px; height: 250px;">
-            <h6 class="m-t-2">Upload a different photo (url)</h6>
-            <input type="text" id="file">
-            <input type="submit" value="Submit">
-        	</form>
-        </div>
-    </div>
-</div>
-<hr>
