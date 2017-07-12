@@ -1,8 +1,14 @@
 <h1 style="margin: 20px 10px">Recent posts</h1>
 
-<p style="margin-left: 10px;">
-	<%= link_to "Create a new post!", new_post_path %>
-</p>
+<% if !@current_user %>
+  <p>Sign in to post!</p>
+<% else %>
+  <p style="margin-left: 10px;">
+    <%= link_to "Create a new post!", new_post_path %>
+  </p>
+<% end %>
+
+
 
 
 <table class="table table-hover table-striped">
