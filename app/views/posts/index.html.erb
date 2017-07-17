@@ -16,7 +16,7 @@
   <% @posts.each do |post| %>                                   
     <tr>
       <td>
-          <h5 class="postTitle"><%= link_to post.title, post %></h5> <%= post.content %> <p class="posts-user">by: <%= User.find(post.user_id).full_name %> <%= time_ago_in_words(post.created_at) %> ago
+          <h5 class="postTitle"><%= link_to post.title, post %></h5> <%= post.content %> <p class="posts-user">by: <%= post.user.full_name %> <%= time_ago_in_words(post.created_at) %> ago
           <%= link_to "Comment", post, id: "comment" %></p>
       </td>
     </tr>

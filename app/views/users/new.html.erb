@@ -1,6 +1,6 @@
 <h1 class="new-user">Welcome to the Circus of Value!</h1>
 
-<%= form_with model: @user, local: true, class: 'new-form' do |f| %>
+<%= form_with model: @user, local: true, html: { multipart: true }, class: 'new-form' do |f| %>
 	<%= f.label :first_name, class: 'first-name' %>
 	<%= f.text_field :first_name %>
 	<%= f.label :last_name, class: 'first-name' %>
@@ -9,6 +9,7 @@
 	<%= f.text_field :email %>
 	<%= f.label :password, "Password", class: 'first-name' %>
 	<%= f.password_field :password %>
+	<%= f.file_field :avatar %>
 	<%= f.submit %>
 <% end %>
 
