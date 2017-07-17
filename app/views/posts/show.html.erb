@@ -5,7 +5,7 @@
 	<h4 style="margin-bottom: 40px;">Comments:</h4>
 
 	<% @post.comments.each do |comment| %>
-		<h6><%= User.find(comment.user_id).full_name %> says:</h6>
+		<h6><%= comment.user.full_name %> says:</h6>
 		<p style="margin-bottom: 20px;"><%= comment.content %></p> 
 		
 		
